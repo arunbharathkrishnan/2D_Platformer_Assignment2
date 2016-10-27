@@ -11,6 +11,8 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 
+    private Transform _transform;
+    public GameObject _startingPoint;
     public bool facingRight = true;
     public bool jump = true;
 
@@ -23,11 +25,17 @@ public class GameController : MonoBehaviour {
     private Animator animator;
     private Rigidbody2D rg2d;
 
-	// Use this for initialization
-	void Awake ()
+
+   
+        // Use this for initialization
+        void Awake ()
     {
+        
         animator = GetComponent<Animator>();
         rg2d = GetComponent<Rigidbody2D>();
+        this._transform = GetComponent<Transform>();
+
+        this._startingPoint = GameObject.FindWithTag("StartingPoint");
 
     }
 	
@@ -73,5 +81,15 @@ public class GameController : MonoBehaviour {
             rg2d.AddForce(new Vector2(0f, jumpForce));
             jump = false;
         }
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("DeathPlane"))
+        {
+            // move the player's position to the spawn point's position
+            this._transform.position = this._startingPoint.transform.position;
+
+        }
+
     }
 }

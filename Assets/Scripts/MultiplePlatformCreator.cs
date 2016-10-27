@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * Author Name : Arun Bharath Krishnan
+ * Last Modified Date : 26-0ct-2014
+ * Last Modified by : Arun Bharath Krishnan
+ * This Class is to create the multiple platform for the player.
+ */
+
 public class MultiplePlatformCreator : MonoBehaviour {
 
     public int maxPlatforms = 50;
@@ -26,6 +33,7 @@ public class MultiplePlatformCreator : MonoBehaviour {
     {
         for (int i = 0; i < maxPlatforms; i++)
         {
+            // Will create the multiple platform tiles with respect to give sizes
             Vector2 randomPosition = originPosition + new Vector2(Random.Range(horizontalMin, horizontalMax), Random.Range(verticalMin, verticalMax));
             Instantiate(platform, randomPosition, Quaternion.identity);
             originPosition = randomPosition;

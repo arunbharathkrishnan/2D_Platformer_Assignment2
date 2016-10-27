@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/*
+ * Author Name : Arun Bharath Krishnan
+ * Last Modified Date : 26-0ct-2014
+ * Last Modified by : Arun Bharath Krishnan
+ * This Class is to create the multiple coins for the player.
+ */
 public class coinSpawn : MonoBehaviour {
 
     public Transform[] coinSpawns;
